@@ -1,7 +1,7 @@
 app_name = "task_scheduler"
 app_title = "Task Scheduler"
-app_publisher = "shashank-js01"
-app_description = "Custom app for auto repeat task scheduling"
+app_publisher = "Shashank Jain"
+app_description = "This is an demo app toauto scheduler."
 app_email = "sjlearner792@gmail.com"
 app_license = "mit"
 
@@ -139,6 +139,16 @@ app_license = "mit"
 # 		"on_trash": "method"
 # 	}
 # }
+doc_events = {
+    "Task": {
+        "before_insert": "task_scheduler.api.task.handle_auto_repeat_task"
+    },
+    "Auto Repeat": {
+        "after_insert": "task_scheduler.api.task.create_tasks_from_schedule",
+        "on_update": "task_scheduler.api.task.create_tasks_from_schedule"
+    }
+}
+
 
 # Scheduled Tasks
 # ---------------
